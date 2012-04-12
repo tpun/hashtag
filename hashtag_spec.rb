@@ -2,19 +2,17 @@ require './hashtag'
 
 describe HashTag do
   describe "#words" do
-    let(:expected) { ['things', 'i', 'like']}
-    it "returns array of proper words" do
-      HashTag.new(expected.join).words.should == expected
+    it "returns array of words" do
+      HashTag.new("thingsilike").words.should == %w( things i like )
     end
 
-    let(:tricky) { ['thing', 'so', 'true', 'is', 'it', 'i'] }
     it "handles overlapping words" do
-      HashTag.new(tricky.join).words.should == tricky
+      HashTag.new("thingsotrueisiti").words.should ==
+        %w( thing so true is it i)
     end
 
-    let(:random) { ["badtaaaag"] }
-    it "returns untouched string if there is any non proper word" do
-      HashTag.new(random.join).words.should == random
+    it "returns empty array if there is any matched word" do
+      HashTag.new("abbbadthing").words.should be_empty
     end
   end
 end

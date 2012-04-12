@@ -3,8 +3,10 @@ class HashTag < String
 
   def words
     word = longest_word_from_end
-    return [self] if word.nil? || self==word
-    [self[0..(length-1-word.length)].words, word].flatten
+    return [word] if word.nil? || self==word
+    out = [self[0..(length-1-word.length)].words, word].flatten
+    out = [] if out.join.length < length
+    out
   end
 
 private
