@@ -1,0 +1,2 @@
+class HashTag < String
+end
