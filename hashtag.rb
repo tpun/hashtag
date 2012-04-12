@@ -1,5 +1,5 @@
 class HashTag < String
   def words
-    self
+    [self]
   end
 end
