@@ -16,7 +16,5 @@ describe HashTag do
     it "returns untouched string if there is any non proper word" do
       HashTag.new(random.join).words.should == random
     end
-
-    it "ignores case"
   end
 end
