@@ -5,7 +5,11 @@ class HashTag < String
     word = longest_word_from_end
     return [word] if word.nil? || self==word
     out = [self[0..(length-1-word.length)].words, word].flatten
+
+    # #longest_word_from_end returns nil if there is no match.
+    # If there is any nil, the reconstructed string will be shorter than self.
     out = [] if out.join.length < length
+
     out
   end
 
