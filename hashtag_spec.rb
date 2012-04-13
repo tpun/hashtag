@@ -11,7 +11,7 @@ describe HashTag do
         %w( thing so true is it i)
     end
 
-    it "returns empty array if there is any matched word" do
+    it "returns empty array if there is any unmatched word" do
       HashTag.new("abbbadthing").words.should be_empty
     end
   end
